@@ -2,9 +2,6 @@ from tkinter import *
 from tkinter import messagebox
 import requests
 
-# =========================
-# YOUR API KEY
-# =========================
 API_KEY = "a558ff252885b9011613039e6c25af09"
 
 def get_weather():
