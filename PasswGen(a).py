@@ -1,4 +1,4 @@
-# Advanced Password Generator (Tkinter GUI)
+# Advanced Password Generator
 
 import random
 import string
@@ -6,9 +6,6 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
-# ----------------------------
-# PASSWORD GENERATION FUNCTION
-# ----------------------------
 def generate_password():
     try:
         length = int(length_entry.get())
@@ -19,7 +16,6 @@ def generate_password():
 
         characters = ""
 
-        # Include character sets
         if letters_var.get():
             characters += string.ascii_letters
 
@@ -33,12 +29,10 @@ def generate_password():
             messagebox.showerror("Error", "Select at least one character type")
             return
 
-        # Exclude similar characters
         if exclude_similar_var.get():
             similar = "Il1O0"
             characters = ''.join(ch for ch in characters if ch not in similar)
 
-        # Exclude custom characters
         exclude_chars = exclude_entry.get()
         characters = ''.join(ch for ch in characters if ch not in exclude_chars)
 
@@ -48,7 +42,6 @@ def generate_password():
 
         password = []
 
-        # Ensure complexity rules
         if letters_var.get():
             password.append(random.choice(string.ascii_letters))
 
@@ -58,7 +51,6 @@ def generate_password():
         if symbols_var.get():
             password.append(random.choice(string.punctuation))
 
-        # Fill remaining length
         while len(password) < length:
             password.append(random.choice(characters))
 
@@ -77,10 +69,8 @@ def generate_password():
     except ValueError:
         messagebox.showerror("Error", "Enter a valid number")
 
-
-# ----------------------------
 # PASSWORD STRENGTH CHECKER
-# ----------------------------
+
 def update_strength(password):
 
     strength = 0
@@ -110,9 +100,8 @@ def update_strength(password):
         strength_label.config(text="Strong", foreground="green")
 
 
-# ----------------------------
 # COPY TO CLIPBOARD
-# ----------------------------
+
 def copy_password():
     password = password_entry.get()
 
@@ -125,18 +114,15 @@ def copy_password():
     else:
         messagebox.showwarning("Warning", "No password generated")
 
-
-# ----------------------------
 # GUI WINDOW
-# ----------------------------
+
 root = tk.Tk()
 root.title("Advanced Password Generator")
 root.geometry("500x500")
 root.resizable(False, False)
 
-# ----------------------------
 # TITLE
-# ----------------------------
+
 title_label = tk.Label(
     root,
     text="Advanced Password Generator",
@@ -144,9 +130,8 @@ title_label = tk.Label(
 )
 title_label.pack(pady=10)
 
-# ----------------------------
 # PASSWORD LENGTH
-# ----------------------------
+
 length_frame = tk.Frame(root)
 length_frame.pack(pady=5)
 
@@ -156,9 +141,8 @@ length_entry = tk.Entry(length_frame, width=10, font=("Arial", 12))
 length_entry.pack(side=tk.LEFT, padx=10)
 length_entry.insert(0, "12")
 
-# ----------------------------
 # CHARACTER OPTIONS
-# ----------------------------
+
 letters_var = tk.BooleanVar(value=True)
 numbers_var = tk.BooleanVar(value=True)
 symbols_var = tk.BooleanVar(value=True)
@@ -210,9 +194,8 @@ tk.Label(
 exclude_entry = tk.Entry(exclude_frame, width=20, font=("Arial", 12))
 exclude_entry.pack(side=tk.LEFT, padx=10)
 
-# ----------------------------
 # GENERATE BUTTON
-# ----------------------------
+
 generate_button = tk.Button(
     root,
     text="Generate Password",
@@ -222,9 +205,8 @@ generate_button = tk.Button(
 )
 generate_button.pack(pady=15)
 
-# ----------------------------
 # PASSWORD OUTPUT
-# ----------------------------
+
 password_entry = tk.Entry(
     root,
     width=35,
@@ -233,9 +215,8 @@ password_entry = tk.Entry(
 )
 password_entry.pack(pady=10)
 
-# ----------------------------
 # COPY BUTTON
-# ----------------------------
+
 copy_button = tk.Button(
     root,
     text="Copy to Clipboard",
@@ -245,9 +226,8 @@ copy_button = tk.Button(
 )
 copy_button.pack(pady=10)
 
-# ----------------------------
 # PASSWORD STRENGTH
-# ----------------------------
+
 strength_text = tk.Label(
     root,
     text="Password Strength:",
@@ -262,7 +242,4 @@ strength_label = tk.Label(
 )
 strength_label.pack(pady=5)
 
-# ----------------------------
-# RUN APPLICATION
-# ----------------------------
 root.mainloop()
