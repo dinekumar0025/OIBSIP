@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 
 
-#RESET FUNCTION 
+#RESET FUNCTION
 
 def reset_entry():
     age_tf.delete(0, END)
