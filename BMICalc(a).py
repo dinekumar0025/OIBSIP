@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 
 
-# ---------------- RESET FUNCTION ---------------- #
+#RESET FUNCTION 
 
 def reset_entry():
     age_tf.delete(0, END)
@@ -11,7 +11,7 @@ def reset_entry():
     var.set(0)
 
 
-# ---------------- BMI CALCULATION ---------------- #
+#BMI CALCULATION
 
 def calculate_bmi():
 
@@ -46,7 +46,7 @@ def calculate_bmi():
         messagebox.showerror("Input Error", "Please enter valid numbers")
 
 
-# ---------------- BMI CATEGORY ---------------- #
+# BMI CATEGORY 
 
 def bmi_index(bmi):
 
@@ -68,7 +68,7 @@ def bmi_index(bmi):
     )
 
 
-# ---------------- MAIN WINDOW ---------------- #
+#MAIN WINDOW 
 
 ws = Tk()
 ws.title("BMI Calculator")
@@ -80,7 +80,7 @@ ws.config(bg="#686e70")
 var = IntVar()
 
 
-# ---------------- FRAME ---------------- #
+# FRAME
 
 frame = Frame(
     ws,
@@ -92,7 +92,7 @@ frame = Frame(
 frame.pack(expand=True)
 
 
-# ---------------- AGE ---------------- #
+#AGE
 
 age_lb = Label(
     frame,
@@ -106,7 +106,7 @@ age_tf = Entry(frame)
 age_tf.grid(row=0, column=1, pady=5)
 
 
-# ---------------- GENDER ---------------- #
+# GENDER
 
 gen_lb = Label(
     frame,
@@ -140,7 +140,7 @@ female_rb = Radiobutton(
 female_rb.pack(side=LEFT)
 
 
-# ---------------- HEIGHT ---------------- #
+#HEIGHT
 
 height_lb = Label(
     frame,
@@ -154,7 +154,7 @@ height_tf = Entry(frame)
 height_tf.grid(row=2, column=1, pady=5)
 
 
-# ---------------- WEIGHT ---------------- #
+# WEIGHT
 
 weight_lb = Label(
     frame,
@@ -168,8 +168,7 @@ weight_tf = Entry(frame)
 weight_tf.grid(row=3, column=1, pady=5)
 
 
-# ---------------- BUTTONS ---------------- #
-
+# BUTTONS 
 frame3 = Frame(frame, bg="white")
 frame3.grid(row=4, columnspan=2, pady=15)
 
