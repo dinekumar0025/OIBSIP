@@ -24,9 +24,8 @@ def get_weather():
             messagebox.showerror("Error", "City not found")
             return
 
-        # =========================
         # WEATHER DETAILS
-        # =========================
+        
         city_name = data["name"]
         country = data["sys"]["country"]
 
@@ -57,18 +56,16 @@ Condition : {weather}
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
-# =========================
 # CLEAR FUNCTION
-# =========================
+
 def clear_data():
 
     city_entry.delete(0, END)
 
     result_label.config(text="")
 
-# =========================
 # MAIN WINDOW
-# =========================
+
 root = Tk()
 
 root.title("Weather App")
